@@ -1,0 +1,175 @@
+[gd_scene load_steps=22 format=3 uid="uid://3xr3syebewck"]
+
+[ext_resource type="PackedScene" uid="uid://lfurh566c6pe" path="res://player.tscn" id="1_3i7nv"]
+[ext_resource type="FontFile" uid="uid://c8dv6xgqr2uyp" path="res://HachiMaruPop-Regular.ttf" id="2_8ublp"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_4xowi"]
+sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+ground_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
+
+[sub_resource type="Sky" id="Sky_a202f"]
+sky_material = SubResource("ProceduralSkyMaterial_4xowi")
+
+[sub_resource type="Environment" id="Environment_noarx"]
+background_mode = 2
+sky = SubResource("Sky_a202f")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_4xowi"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_4xowi"]
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_a202f"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_noarx"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_a202f"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_a0tk4"]
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_r3fl7"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jka67"]
+albedo_color = Color(0, 0, 1, 1)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_noarx"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_i5arm"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wc5p8"]
+albedo_color = Color(0, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_jsk3o"]
+material = SubResource("StandardMaterial3D_wc5p8")
+height = 0.5
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_3i7nv"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8ublp"]
+albedo_color = Color(1, 1, 0, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_pmdsw"]
+height = 0.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_1377e"]
+albedo_color = Color(1, 0, 1, 1)
+
+[node name="Node3D" type="Node3D"]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_noarx")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866025, -0.433013, 0.25, 0, 0.5, 0.866025, -0.5, 0.75, -0.433013, 0, 0, 0)
+shadow_enabled = true
+
+[node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.3, 0)
+use_collision = true
+collision_mask = 30
+size = Vector3(10, 0.1, 10)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.25, 0)
+collision_layer = 2
+collision_mask = 125
+physics_material_override = SubResource("PhysicsMaterial_4xowi")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.3, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("CylinderShape3D_4xowi")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_a202f")
+surface_material_override/0 = SubResource("StandardMaterial3D_noarx")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.75, 0)
+collision_layer = 4
+collision_mask = 123
+physics_material_override = SubResource("PhysicsMaterial_a202f")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.5, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2"]
+shape = SubResource("CylinderShape3D_a0tk4")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_r3fl7")
+surface_material_override/0 = SubResource("StandardMaterial3D_jka67")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.25, 0)
+collision_layer = 8
+collision_mask = 119
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3"]
+shape = SubResource("CylinderShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_jsk3o")
+
+[node name="RigidBody3D4" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 1.75, 0)
+collision_layer = 32
+collision_mask = 95
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.9, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D4"]
+shape = SubResource("CylinderShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D4/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_3i7nv")
+surface_material_override/0 = SubResource("StandardMaterial3D_8ublp")
+
+[node name="RigidBody3D5" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 2.25, 0)
+collision_layer = 64
+collision_mask = 63
+physics_material_override = SubResource("PhysicsMaterial_noarx")
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, -0.7, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D5"]
+shape = SubResource("CylinderShape3D_i5arm")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D5/CollisionShape3D"]
+mesh = SubResource("CylinderMesh_pmdsw")
+surface_material_override/0 = SubResource("StandardMaterial3D_1377e")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558454, 1.09026, 2.97572)
+
+[node name="player" parent="." instance=ExtResource("1_3i7nv")]
+collision_mask = 15
+input_ray_pickable = false
+
+[node name="Button" type="Button" parent="."]
+offset_left = 850.0
+offset_right = 1100.0
+offset_bottom = 100.0
+theme_override_fonts/font = ExtResource("2_8ublp")
+theme_override_font_sizes/font_size = 50
+text = "リセット"
+
+[connection signal="body_entered" from="RigidBody3D" to="player" method="_on_rigid_body_3d_body_entered"]
+[connection signal="body_shape_entered" from="RigidBody3D" to="player" method="_on_rigid_body_3d_body_shape_entered"]
+[connection signal="body_entered" from="RigidBody3D2" to="player" method="_on_rigid_body_3d_2_body_entered"]
+[connection signal="body_entered" from="RigidBody3D3" to="player" method="_on_rigid_body_3d_3_body_entered"]
+[connection signal="body_entered" from="RigidBody3D4" to="player" method="_on_rigid_body_3d_4_body_entered"]
+[connection signal="body_entered" from="RigidBody3D5" to="player" method="_on_rigid_body_3d_5_body_entered"]
+[connection signal="button_down" from="Button" to="player" method="_on_button_button_down"]

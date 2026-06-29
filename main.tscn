@@ -1,0 +1,63 @@
+[gd_scene load_steps=2 format=3 uid="uid://oxuborv2lqvx"]
+
+[ext_resource type="Script" uid="uid://b0ldqn6etg7ac" path="res://main.gd" id="1_ig7tw"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ig7tw")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1100.0
+offset_bottom = 650.0
+color = Color(0.705882, 1, 0.866667, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 143.0
+offset_top = 109.0
+offset_right = 633.0
+offset_bottom = 246.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "ダルマ落とし"
+
+[node name="3dan" type="Button" parent="."]
+layout_mode = 0
+offset_left = 50.0
+offset_top = 400.0
+offset_right = 350.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "３段"
+
+[node name="4dan" type="Button" parent="."]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 400.0
+offset_right = 700.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "４段
+"
+
+[node name="5dan" type="Button" parent="."]
+layout_mode = 0
+offset_left = 750.0
+offset_top = 400.0
+offset_right = 1050.0
+offset_bottom = 545.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 100
+text = "５段"
+
+[connection signal="button_down" from="3dan" to="." method="_on_dan3_button_down"]
+[connection signal="button_down" from="4dan" to="." method="_on_dan4_button_down"]
+[connection signal="button_down" from="5dan" to="." method="_on_dan5_button_down"]
