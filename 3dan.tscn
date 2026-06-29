@@ -114,6 +114,7 @@ mesh = SubResource("CylinderMesh_jsk3o")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.558454, 1.09026, 2.97572)
+current = true
 
 [node name="player" parent="." instance=ExtResource("1_4eysi")]
 collision_mask = 15
