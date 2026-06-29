@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://oxuborv2lqvx"]
+[gd_scene load_steps=3 format=3 uid="uid://oxuborv2lqvx"]
 
 [ext_resource type="Script" uid="uid://b0ldqn6etg7ac" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="FontFile" uid="uid://c8dv6xgqr2uyp" path="res://HachiMaruPop-Regular.ttf" id="2_0xm2m"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -24,6 +25,7 @@ offset_top = 109.0
 offset_right = 633.0
 offset_bottom = 246.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 100
 text = "ダルマ落とし"
 
@@ -34,6 +36,7 @@ offset_top = 400.0
 offset_right = 350.0
 offset_bottom = 545.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 100
 text = "３段"
 
@@ -44,6 +47,7 @@ offset_top = 400.0
 offset_right = 700.0
 offset_bottom = 545.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 100
 text = "４段
 "
@@ -55,6 +59,7 @@ offset_top = 400.0
 offset_right = 1050.0
 offset_bottom = 545.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("2_0xm2m")
 theme_override_font_sizes/font_size = 100
 text = "５段"
 
