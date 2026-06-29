@@ -10,6 +10,7 @@ extends AnimatableBody3D
 @onready var input_dir : float = 0.0
 
 func _ready() -> void:
+	Engine.max_fps = 60
 	initial_position = global_position
 	
 	if Global.dansu == 3:
