@@ -23,6 +23,7 @@ Global="*res://Global.gd"
 
 window/size/viewport_width=1100
 window/size/viewport_height=650
+window/size/resizable=false
 
 [input]
 
@@ -43,5 +44,6 @@ common/physics_ticks_per_second=120
 
 [rendering]
 
-renderer/rendering_method="mobile"
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
 textures/vram_compression/import_etc2_astc=true
